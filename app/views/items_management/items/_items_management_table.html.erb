@@ -1,0 +1,28 @@
+<% if @items.empty? %>
+  <table class='noborders'>
+    <tr>
+      <td><h2>Нет вещей</h2></td>
+    </tr>
+  </table>
+<% else %>
+  <table class='item-templates-management solid zebra'>
+    <tr>
+      <th>id</th>
+      <th>Название</th>
+      <th>Цена</th>
+      <th>Комментарий для всех</th>
+      <th>Комментарий для меня</th>
+      <th></th>
+    </tr>
+    <% @items.each do |i| %>
+      <tr>
+        <td><%= i.id %></td>
+        <td class="nowrap"><%= link_to i.caption, get_path_for_item(:edit).call(i), method: :get, remote: @use_remote, format: @response_format %></td>
+        <td><%= i.price_cr %></td>
+        <td><%= i.visible_comment %></td>
+        <td><%= i.hidden_comment %></td>
+        <td><%= link_to "Удалить", get_path_for_item(:destroy).call(i), class: "attach_handler", data: {method: :delete, url: get_path_for_item(:destroy).call(i), remote: @use_remote, format: :json, confirm: "Точно удалить?"} %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

@@ -1,0 +1,18 @@
+<%= render partial: 'item_templates_submenu', locals: {buttons: [:show_all, :add_new]} %>
+<table class='noborders'>
+  <tr>
+    <td class='expand'>
+      <table class='noborders expand'>
+        <tr>
+          <td class="current-category"><%= render partial: '/selected_category' %></td>
+          <td class='items-count-pagination'><%= items_count_pagination_for_admin_items_templates %></td>
+        </tr>
+      </table>
+      <%= render partial: 'item_templates_management_table' %>
+      <hr>
+      <%= pages_pagination_for_admin_item_templates %>
+      <hr>
+    </td>
+    <td><%= render partial: '/categories_menu_table', locals: {count_this: :item_templates, path_proc: lambda{|c| admin_category_item_templates_path(c)} } %></td>
+  </tr>
+</table>

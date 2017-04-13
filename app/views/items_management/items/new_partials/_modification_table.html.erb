@@ -1,0 +1,22 @@
+<% return unless @item.can_be_modified? %>
+<td>
+  <table id="midification" class="noborders left dashed">
+    <caption>Модификация</caption>
+    <% stats_for_item_improvements.each_value do |stat| %>
+      <tr>
+        <td><%= f.radio_button :modification_by_stat, stat[:value], checked: stat[:value] == modification_value %><%= f.label :modification_by_stat, stat[:caption], value: stat[:value] %></td>
+      </tr>
+    <% end %>
+  </table>
+</td>
+
+<script>
+  jQuery(document).ready(function( $ ) {
+    var $wrapper = $("<%= Shop_selectors::SHOP_WRAPPER %>");
+    $("input:radio[name='item[modification_by_stat]']", $wrapper).change(function() {
+      if( $(this).val() == 0 ) {
+        $("input:radio[name='item[tempering_by_stat]']", $wrapper).filter("[value=0]").prop('checked', true);
+      }
+    });
+  });
+</script>

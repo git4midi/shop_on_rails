@@ -1,0 +1,57 @@
+// Place all the styles related to the categories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+div#shop-wrapper {
+  
+  ul li {
+    margin: 0;
+    padding: 0;
+    line-height: 1.3;
+  }
+  
+  table.categories-menu {
+    text-align: left;
+    margin: 0px 2px 0px 2px;
+    padding: 0px;
+    border: 0px;
+    
+    td {
+      margin: 0;
+      padding: 0;
+      border: 0px;
+    }
+    
+    ul.categories {
+      font-family: Verdana, Arial, Helvetica, Tahoma, sans-serif;
+      font-size: 13px;
+      color: black;
+      list-style: disc outside;
+      margin: 0;
+      padding-left: 2em;
+      white-space: nowrap;
+      
+      li.children {
+        list-style: circle;
+        margin-left: 1em;
+      }
+      
+    }
+    
+    a, a:visited {
+      font-weight: bold;
+      color: #003388;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      color: #0066ff;
+    }
+  }
+  
+  .departments-header {
+    background-color: #D2D0D1;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+}

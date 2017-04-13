@@ -1,0 +1,15 @@
+<% return unless @item.can_has_weapons_possession? %>
+<td>
+  <table class="noborders left dashed">
+    <caption>Владения оружием</caption>
+    <tr>
+      <td><%= f.check_box :weapon_possession_plus1 %><%= f.label :weapon_possession_plus1, 'мастерство владения оружием +1' %></td>
+    </tr>
+    <tr>
+      <td><%= f.check_box :weapon_possession_plus2 %><%= f.label :weapon_possession_plus2, 'мастерство владения оружием +2' %></td>
+    </tr>
+    <tr>
+      <td><%= f.check_box :weapon_possession_plus3 %><%= f.label :weapon_possession_plus3, 'мастерство владения оружием +3' %></td>
+    </tr>
+  </table>
+</td>

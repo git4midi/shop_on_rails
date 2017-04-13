@@ -1,0 +1,18 @@
+<table class='categories-management'>
+  <tr>
+    <th>id</th>
+    <th>caption</th>
+    <th>parent_id</th>
+    <th>order</th>
+    <th></th>
+  </tr>
+  <% @categories.each do |i| %>
+    <tr>
+      <td><%= i.id %></td>
+      <td><%= link_to i.caption, edit_admin_category_path(i), method: :get, remote: @use_remote, format: @response_format %></td>
+      <td><%= i.parent_id %>(<%= parent_caption i %>)</td>
+      <td><%= i.order %></td>
+      <td><%= link_to "Удалить", admin_category_path(i), class: "attach_handler", data: {method: :delete, url: admin_category_path(i), remote: @use_remote, format: :json, confirm: "Точно удалить?"} %></td>
+    </tr>
+  <% end %>
+</table>

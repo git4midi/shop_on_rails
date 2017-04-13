@@ -1,0 +1,36 @@
+<% return unless @item.can_be_sharpened? %>
+<td>
+  <table id="sharpening" class="noborders left dashed">
+    <caption>Заточка</caption>
+    <tr>
+      <td><%= f.check_box :sharpening_plus5 %><%= f.label :sharpening_plus5, 'обычная +5' %></td>
+    </tr>
+    <tr>
+      <td><%= f.check_box :sharpening_universal1 %><%= f.label :sharpening_universal1, 'универсальная +1' %></td>
+    </tr>
+    <tr>
+      <td><%= f.check_box :sharpening_universal2 %><%= f.label :sharpening_universal2, 'универсальная +2' %></td>
+    </tr>
+    <tr>
+      <td><%= f.check_box :sharpening_universal3 %><%= f.label :sharpening_universal3, 'универсальная +3' %></td>
+    </tr>
+  </table>
+</td>
+
+<script>
+  jQuery(document).ready(function( $ ) {
+    var $wrapper = $("<%= Shop_selectors::SHOP_WRAPPER %>");
+    
+    $("input:checkbox[name='item[sharpening_plus5]']", $wrapper).change(function() {
+      if( $(this).prop('checked') == false ) {
+        $("input:checkbox[name*='sharpening_universal']", $wrapper).prop('checked', false);
+      }
+    });
+    
+    $("input[name*='sharpening_universal']", $wrapper).change(function() {
+      if( $("input:checkbox[name='item[sharpening_plus5]']", $wrapper).prop('checked') == false) {
+        $(this).prop('checked', false);
+      }
+    });
+  });
+</script>

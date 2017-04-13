@@ -1,0 +1,4 @@
+<%= form_for [:items_management, @item], url: get_path_for_item(:create).call, method: :post, remote: @use_remote, format: @response_format do |f| %>
+  <p><%= f.label :item_template_id, 'Шаблон:' %>
+     <%= f.select(:item_template_id, item_templates_map_for_item_template_selection, {include_blank: 'Выберите шаблон...'}, data: {url:"/items_management/update_new_form?category_id="+@current_category_id.to_s, remote: true, method: :post, format: :json } ) %></p>     
+<% end %>

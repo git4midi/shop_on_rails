@@ -1,0 +1,10 @@
+<div class='shopAdminPanel'>
+  <%= puts "use_remote=#{@use_remote}, format=#{@response_format}" %>
+  <% buttons = {  "Шаблоны вещей"=> admin_item_templates_path, 
+                  "Категории"=> admin_categories_path,
+                  "Пользователи"=> admin_users_path } %>
+  <% buttons.each do |caption, path| %>
+    <%= button_to caption, path, { method: :get, remote: @use_remote, format: @response_format, class:"btn panel", form_class: "panel"} %>
+  <% end %>
+</div>
+

@@ -1,0 +1,38 @@
+<% show_compact = false unless local_assigns[:show_compact] %>
+<table class='categories-menu'>
+  <tr>
+    <td>
+      <div class='departments-header'>Отделы магазина</div>
+      <% categories_map = Category.categories_map %>
+      <% if categories_map.empty? then %>
+        <%= "нет категорий" %>
+      <% else %>
+        <ul class='categories'>
+          <% categories_map.each do |c| %>
+            <% if c[:parent_id].nil? then %>
+              <% if c[:have_children] %>
+                <li class='parent'>
+                  <%= c[:caption] %>
+                </li>
+              <% else %>
+                <li class='parent'>
+                  <%= link_to c[:caption], path_proc.call(c[:id]), method: :get, remote: @use_remote, format: @response_format %>
+                  <% if local_assigns[:count_this] %>
+                    <%= "(" + categories_get_count_for(c[:id], count_this) + ")" %>
+                  <% end %>
+                </li>
+              <% end %>
+            <% else %>
+              <li class='children'>
+                <%= link_to c[:caption], path_proc.call(c[:id]), method: :get, remote: @use_remote, format: @response_format, data: {show_compact: show_compact} %>
+                <% if local_assigns[:count_this] %>
+                  <%= "(" + categories_get_count_for(c[:id], count_this) + ")" %>
+                <% end %>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>  
+      <% end %>
+    </td>
+  </tr>
+</table>

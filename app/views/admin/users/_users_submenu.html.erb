@@ -1,0 +1,15 @@
+<% unless buttons.nil? %>
+  <div>
+    <hr/>
+      <% buttons.each do |b| %>
+        <% case b %>
+        <% when :add_new %>
+          <%= render partial: 'button_add_new_user' %>
+        <% when :show_all %>
+          <%= render partial: 'button_show_all_users' %>
+        <% end %>
+      <% end %>
+  <hr/>
+</div>
+<% end %>
+

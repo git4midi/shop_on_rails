@@ -1,0 +1,11 @@
+<%= render partial: 'categories_submenu', locals: {buttons: [:show_all]} %>
+<h1>Создаем новую категорию</h1>
+<%= form_for [:admin, @category], method: :post, remote: @use_remote, format: @response_format do |f| %>
+  <p><%= f.label :caption, 'Название:' %>
+    <%= f.text_field :caption %></p>
+  <p><%= f.label :parent_id, 'Родитель:' %>
+     <%= f.select( :parent_id, categories_root_map_for_selection) %></p>
+  <p><%= f.label :order, 'Порядок:' %>
+     <%= f.text_field :order %></p>
+  <p><%= f.submit "Сохранить", class: 'btn default'%></p>
+<% end %>

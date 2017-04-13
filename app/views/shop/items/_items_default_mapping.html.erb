@@ -1,0 +1,29 @@
+<table class="expand solid zebra">
+  <% @items.each do |i| %>
+    <% t = i.item_template %>
+    <tr>
+      <td class="center middle solid" style="width: 400px">
+        <div class="image"><%= image_tag(t.image_link) %></div>
+        <div class="enchants"><%= print_item_enchants(i, t) %></div>
+        <div><%= print_item_comments(i, t) %></div>
+        <div><%= print_item_seller(i, t) %></div>
+      </td>
+      <td class="solid">
+        <table class="item-info noborders left">
+          <tr>
+            <td>
+              <div><%= print_item_caption(i, t) %></div>
+              <div class="id"><%= i.id %></div>
+              <div class="price">Цена: <%= i.price_cr %> кр.</div>
+              <div class="durability">Долговечность: <%= i.durability_current %>/<%= t.durability_maximum %></div>
+              <div class="requirements"><%= print_item_requirements(i, t) %></div>
+              <div class="effects"><%= print_item_effects(i, t) %></div>
+              <div class="properties"><%= print_item_properties(i, t) %></div>
+              <div class="embedded_magic"><%= print_item_embedded_magic(i, t) %></div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,8 @@
+<%= render partial: 'items_management_submenu', locals: {buttons: [:show_all]} %>
+<h2>Добавляем новую вещь</h2>
+<%= render partial: '/selected_category', locals:{ category_id: category_id_from_item } %>
+<% if @item.item_template_id.nil? then %>
+  <%= render partial: 'items_management/items/new_partials/item_template_id_is_nil' %>
+<% else %>
+  <%= render partial: 'items_management/items/new_partials/item_template_id_is_not_nil' %>
+<% end %>

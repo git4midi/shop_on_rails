@@ -1,0 +1,21 @@
+<table class="expand solid zebra">
+  <% comtact_data_map(@items).each do |i| %>
+    <tr>
+      <td class="center middle solid" style="width: 400px">
+        <div class="image"><%= image_tag(i[:image_link]) %></div>
+      </td>
+      <td class="solid">
+        <table class="item-info noborders left">
+          <tr>
+            <td>
+              <div><%= print_item_caption_for_compact(i) %></div>
+              <div class="count">Количество: <%= i[:items_count] %></div>
+              <div class="price">Цена: <%= i[:price_cr_min] %> - <%= i[:price_cr_max] %> кр.</div>
+              <div class="durability">Долговечность: <%= i[:durability_current_min] %>-<%= i[:durability_current_max] %>/<%= i[:durability_current_maximum_min] %>-<%= i[:durability_current_maximum_min] %> (<%= i[:durability_maximum] %>)</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  <% end %>
+</table>

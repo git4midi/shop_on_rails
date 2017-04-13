@@ -1,0 +1,9 @@
+<%= render partial: 'categories_submenu', locals: {buttons: [:show_all, :add_new]} %>
+<table class='noborders'>
+  <tr>
+    <td class='expand'>
+      <%= render partial: 'categories_management_table' %>
+    </td>
+    <td><%= render partial: '/categories_menu_table', locals: {path_proc: lambda{|c| admin_categories_path } } %></td>
+  </tr>
+</table>

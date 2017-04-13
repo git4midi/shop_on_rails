@@ -1,0 +1,12 @@
+<% show_compact = false unless local_assigns[:show_compact] %>
+<% items_partial_template = 'items_default_mapping' %>
+<% items_partial_template = 'items_compact_mapping' if show_compact %>
+<% if @items.empty? %>
+  <table class="noborders">
+    <tr>
+      <td><h2>Нет вещей</h2></td>
+    </tr>
+  </table>
+<% else %>
+  <%= render partial: items_partial_template %>
+<% end %>

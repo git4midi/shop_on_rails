@@ -1,0 +1,9 @@
+<%= render partial: 'users_submenu', locals: {buttons: [:show_all]} %>
+<h1>Редактируем пользователя</h1>
+<%= form_for [:admin, @user], method: :patch, remote: @use_remote, format: @response_format  do |f| %>
+  <p><%= f.label :user_name, 'Имя:' %>
+    <%= f.text_field :user_name %></p>
+  <p><%= f.label :joomla_user_id, 'joomla_user_id' %>
+    <%= f.text_field :joomla_user_id %></p>
+  <p><%= f.submit "Сохранить", class: 'btn default'%></p>
+<% end %>

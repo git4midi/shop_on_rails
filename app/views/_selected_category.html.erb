@@ -1,0 +1,4 @@
+<% category_id = nil unless local_assigns[:category_id] %>
+<div class='current-category'>
+  <span>Отдел : <%= get_current_category_chain(category_id) %></span>
+</div>

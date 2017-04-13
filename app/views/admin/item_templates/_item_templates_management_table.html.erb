@@ -1,0 +1,24 @@
+<% if @item_templates.empty? %>
+  <table class='noborders'>
+    <tr>
+      <td><h2>Нет шаблонов</h2></td>
+    </tr>
+  </table>
+<% else %>
+  <table class='item-templates-management solid'>
+    <tr>
+      <th>id</th>
+      <th>Название</th>
+      <th>Категория</th>
+      <th></th>
+    </tr>
+    <% @item_templates.each do |i| %>
+      <tr>
+        <td><%= i.id %></td>
+        <td><%= link_to i.caption, get_path_for_item_template(:edit).call(i), method: :get, remote: @use_remote, format: @response_format %></td>
+        <td><%= Category.caption_by_id(i.category_id) %></td>
+        <td><%= link_to "Удалить", get_path_for_item_template(:destroy).call(i), class: "attach_handler", data: {method: :delete, url: get_path_for_item_template(:destroy).call(i), remote: @use_remote, format: :json, confirm: "Точно удалить?"} %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

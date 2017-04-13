@@ -1,0 +1,53 @@
+// Place all the styles related to the items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+div#shop-wrapper {
+  .seller {
+    font-weight: bold;
+    color: #003388;
+  }
+  .seller a, a:visited{
+    text-decoration: none;
+  }
+  .seller a:hover {
+    color: #0066ff;
+  }
+  
+  .item-info {
+    line-height: 1.3;
+  }
+  
+  .align {
+    color: #df0000;
+  }
+
+  .two_handed {
+    color: #800000;
+  }
+  
+  .caption {
+    font-weight: bold;
+    color: #003388;
+  }
+  
+  .caption a, .caption a:visited {
+    text-decoration: none;
+  }
+  
+  .caption a:hover {
+    color: #0066ff;
+  }
+  
+  .id {
+    font-weight: bold;
+    font-size: smaller;
+  }
+  
+  .price {
+    font-weight: bold;
+  }
+  
+  .embedded_magic_label {
+    color: #800000;
+  }
+}

@@ -1,0 +1,16 @@
+<table class='users-management'>
+  <tr>
+    <th>id</th>
+    <th>user_name</th>
+    <th>joomla_user_id</th>
+    <th></th>
+  </tr>
+  <% @users.each do |u| %>
+    <tr>
+      <td><%= u.id %></td>
+      <td><%= link_to u.user_name, edit_admin_user_path(u), method: :get, remote: @use_remote, format: @response_format %></td>
+      <td><%= u.joomla_user_id %></td>
+      <td><%= link_to "Удалить", admin_user_path(u), class: "attach_handler", data: {method: :delete, url: admin_user_path(u), format: :json, confirm: "Точно удалить?"} %></td>
+    </tr>
+  <% end %>
+</table>

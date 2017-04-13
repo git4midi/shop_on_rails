@@ -1,0 +1,35 @@
+<%= form_for [:items_management, @item], url: get_path_for_item(:create).call, method: :post, remote: @use_remote, format: @response_format do |f| %>
+  <p><%= f.label :item_template_id, 'Шаблон:' %>
+     <%= f.select(:item_template_id, item_templates_map_for_item_template_selection(@item_template_id), {},  data: {url:"/items_management/update_new_form?category_id="+@current_category_id.to_s, remote: true, method: :post, format: :json }) %></p>
+  <table class="noborders left">
+    <tr>
+      <td><%= f.label :price_cr, 'Цена в кредитах:' %></td><td><%= f.text_field :price_cr %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :durability_current, 'Текущая долговечность:' %></td><td><%= f.text_field :durability_current %>/<%= f.text_field :durability_current_maximum %> из <%= durability_maximum_from_item_template(@item_template_id) %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :visible_comment, 'Комментарий для всех:' %></td><td><%= f.text_field :visible_comment %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :hidden_comment, 'Комментарий только для меня:' %></td><td><%= f.text_field :hidden_comment %></td>
+    </tr>
+  </table>
+   
+  <hr>
+  <table class="noborders left">
+    <tr>
+      <%= render partial: 'items_management/items/new_partials/modification_table', locals:{ f: f, modification_value: @item[:modification_by_stat] } %>
+      <%= render partial: 'items_management/items/new_partials/tempering_table', locals:{ f: f, tempering_value: @item[:tempering_by_stat] } %>
+      <%= render partial: 'items_management/items/new_partials/embedded_hp_in_armor', locals:{ f: f, embedded_hp_value: @item[:embedded_hp_in_armor] } %>
+      <%= render partial: 'items_management/items/new_partials/embedded_hp_in_ring', locals:{ f: f } %>
+      <%= render partial: 'items_management/items/new_partials/sharpening', locals:{ f: f } %>
+      <%= render partial: 'items_management/items/new_partials/weapon_possessions', locals:{ f: f } %>
+    </tr>
+  </table>
+     
+  <%= render partial: 'items_management/items/new_partials/embedded_magic', locals:{ item_template_id: @item.item_template_id, f: f } %>
+
+  <hr>  
+  <p><%= f.submit "Сохранить", class: 'btn default'%></p>
+<% end %>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Layout Shop Admin</title>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="shop-wrapper">
+    <div id='shopAdminWrapper'>
+      <%= render partial: '/admin/admin_panel' %>
+      <%= render partial: '/notice' %>
+      <%= yield %>
+    </div>
+  </div>
+</body>
+</html>

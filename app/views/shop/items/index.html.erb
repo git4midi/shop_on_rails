@@ -1,0 +1,17 @@
+<table class='noborders'>
+  <tr>
+    <td class='expand'>
+      <table class='noborders expand'>
+        <tr>
+          <td><%= render partial: '/selected_category' %></td>
+          <td class='items-count-pagination'><%= items_count_pagination_for_shop_items %></td>
+        </tr>
+      </table>
+      <%= render partial: 'items_table', locals: {show_compact: @show_compact} %>
+      <hr>
+      <%= pages_pagination_for_shop_items %>
+      <hr>
+    </td>
+    <td><%= render partial: '/categories_menu_table', locals: {count_this: :items, path_proc: lambda{|c| shop_category_items_path(c)}, show_compact: true } %></td>
+  </tr>
+</table>

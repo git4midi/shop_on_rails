@@ -1,0 +1,15 @@
+<% return unless @item.can_has_embedded_hp_in_ring? %>
+<td>
+  <table class="noborders left dashed">
+    <caption>Чарка кольца</caption>
+    <tr>
+      <td><%= f.check_box :embedded_hp_in_ring_hp5 %><%= f.label :embedded_hp_in_ring_hp5, '+5 HP' %></td>
+    </tr>
+    <tr>
+      <td><%= f.check_box :embedded_hp_in_ring_hp10 %><%= f.label :embedded_hp_in_ring_hp10, '+10 HP' %></td>
+    </tr>
+    <tr>
+      <td><%= f.check_box :embedded_hp_in_ring_hp15 %><%= f.label :embedded_hp_in_ring_hp15, '+15 HP' %></td>
+    </tr>
+  </table>
+</td>

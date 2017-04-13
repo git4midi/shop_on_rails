@@ -1,0 +1,5 @@
+<%= render partial: 'item_templates_submenu', locals: {buttons: [:show_all]} %>
+<h1>Редактируем шаблон вещи</h1>
+<%= form_for [:admin, @item_template], url: get_path_for_item_template(:patch).call(@item_template.id), method: :patch, remote: @use_remote, format: @response_format do |f| %>
+  <%= render partial: 'admin/item_templates/form_content', locals:{ f: f, category_id: @item_template.category_id } %>
+<% end %>

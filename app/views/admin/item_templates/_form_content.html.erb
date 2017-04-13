@@ -1,0 +1,252 @@
+  <%= f.label :category_id, 'Категория:' %>
+     <%= f.select( :category_id, categories_map_for_item_template_selection, selected: category_id) %>
+  <%= f.label :item_type, 'Тип вещи:' %>
+     <%= f.select( :item_type, items_types_map_for_item_template_selection, selected:  @item_template.item_type) %>
+
+  <%= f.label :is_two_handed, 'Двуручное:' %>
+    <%= f.check_box :is_two_handed %></td>
+
+    <table class="noborders">
+      <tr>
+        <td><%= f.label :caption, 'Название:' %><%= f.text_field :caption %></td>
+        <td><%= f.label :image_link, 'Путь картинки:' %><%= f.text_field :image_link %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :price_default_cr, 'Цена в кредитах:' %><%= f.text_field :price_default_cr %></td>
+        <td><%= f.label :durability_maximum, 'Максимальная долговечность:' %><%= f.text_field :durability_maximum %></td>
+      </tr>
+    </table>
+  
+  <hr>
+  <table class="noborders">
+    <caption>Требования</caption>
+    <tr>
+      <td><%= f.label :requirements_level, 'Уровень:' %><%= f.text_field :requirements_level %></td>
+      <td><%= f.label :requirements_align_type, 'Требуемая склонность:' %><%= f.select( :requirements_align_type, ItemAlignTypes.map, selected:  @item_template.requirements_align_type) %></td>
+    </tr>
+    <tr>
+      <td>
+     
+        <table class="noborders">
+         <caption>Минимальные статы</caption>
+           <tr>
+             <td><%= f.label :requirements_stats_strenght, 'Сила:' %></td><td><%= f.text_field :requirements_stats_strenght %></td>
+           <tr>
+           <tr>
+             <td><%= f.label :requirements_stats_agility, 'Ловкость:' %></td><td><%= f.text_field :requirements_stats_agility %></td>
+           </tr>
+           <tr>
+             <td><%= f.label :requirements_stats_intuition, 'Интуиция:' %></td><td><%= f.text_field :requirements_stats_intuition %></td>
+           </tr>
+           <tr>
+             <td><%= f.label :requirements_stats_endurance, 'Выносливость:' %></td><td><%= f.text_field :requirements_stats_endurance %></td>
+           </tr>
+           <tr>
+             <td><%= f.label :requirements_stats_intellect, 'Интеллект:' %></td><td><%= f.text_field :requirements_stats_intellect %></td>
+           </tr>
+        </table>
+        
+      </td>
+      <td>
+
+        <table class="noborders">
+          <caption>Минимальные мастерства</caption>
+          <tr>
+            <td><%= f.label :requirements_masteries_knives, 'Ножи и кастеты:' %></td><td><%= f.text_field :requirements_masteries_knives %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :requirements_masteries_swords, 'Мечи:' %></td><td><%= f.text_field :requirements_masteries_swords %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :requirements_masteries_clubs, 'Дубины, булавы:' %></td><td><%= f.text_field :requirements_masteries_clubs %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :requirements_masteries_axes, 'Топоры:' %></td><td><%= f.text_field :requirements_masteries_axes %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :requirements_masteries_light_magic, 'Светлая магия:' %></td><td><%= f.text_field :requirements_masteries_light_magic %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :requirements_masteries_gray_magic, 'Серая магия:' %></td><td><%= f.text_field :requirements_masteries_gray_magic %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :requirements_masteries_dark_magic, 'Темная магия:' %></td><td><%= f.text_field :requirements_masteries_dark_magic %></td>
+          </tr>
+        </table>
+      
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <table class="noborders">
+    <caption>Эффекты</caption>
+    <tr>
+      <td><%= f.label :effects_health, 'Здоровье:' %><%= f.text_field :effects_health %></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        
+        <table class="noborders">
+         <caption>Cтаты</caption>
+           <tr>
+             <td><%= f.label :effects_stats_strenght, 'Сила:' %></td><td><%= f.text_field :effects_stats_strenght %></td>
+           <tr>
+           <tr>
+             <td><%= f.label :effects_stats_agility, 'Ловкость:' %></td><td><%= f.text_field :effects_stats_agility %></td>
+           </tr>
+           <tr>
+             <td><%= f.label :effects_stats_intuition, 'Интуиция:' %></td><td><%= f.text_field :effects_stats_intuition %></td>
+           </tr>
+           <tr>
+             <td><%= f.label :effects_stats_endurance, 'Выносливость:' %></td><td><%= f.text_field :effects_stats_endurance %></td>
+           </tr>
+           <tr>
+             <td><%= f.label :effects_stats_intellect, 'Интеллект:' %></td><td><%= f.text_field :effects_stats_intellect %></td>
+           </tr>
+        </table>
+        
+        <table class="noborders">
+         <caption>Модификаторы</caption>
+           <tr>
+             <td><%= f.label :effects_modifiers_dodge, 'Уворот:' %></td><td><%= f.text_field :effects_modifiers_dodge %></td>
+           <tr>
+           <tr>
+             <td><%= f.label :effects_modifiers_antidodge, 'Антиуворот:' %></td><td><%= f.text_field :effects_modifiers_antidodge %></td>
+           </tr>
+           <tr>
+             <td><%= f.label :effects_modifiers_crit, 'Крит:' %></td><td><%= f.text_field :effects_modifiers_crit %></td>
+           </tr>
+           <tr>
+             <td><%= f.label :effects_modifiers_anticrit, 'Антикрит:' %></td><td><%= f.text_field :effects_modifiers_anticrit %></td>
+           </tr>
+        </table>
+        
+        <table class="noborders">
+         <caption>Урон</caption>
+           <tr>
+             <td><%= f.label :effects_damage_minimum, 'Минимальный:' %></td><td><%= f.text_field :effects_damage_minimum %></td>
+           <tr>
+           <tr>
+             <td><%= f.label :effects_damage_maximum, 'Максимальный:' %></td><td><%= f.text_field :effects_damage_maximum %></td>
+           </tr>
+           <tr>
+             <td><%= f.label :effects_damage_additional, 'Дополнительный:' %></td><td><%= f.text_field :effects_damage_additional %></td>
+           </tr>
+        </table>
+        
+      </td>
+      <td>
+
+        <table class="noborders">
+         <caption>Броня</caption>
+           <tr>
+             <td><%= f.label :effects_armor_head, 'Голова:' %></td><td><%= f.text_field :effects_armor_head %></td>
+           <tr>
+           <tr>
+             <td><%= f.label :effects_armor_torso, 'Корпус:' %></td><td><%= f.text_field :effects_armor_torso %></td>
+           </tr>
+           <tr>
+             <td><%= f.label :effects_armor_waist, 'Пояс:' %></td><td><%= f.text_field :effects_armor_waist %></td>
+           </tr>
+           <tr>
+             <td><%= f.label :effects_armor_legs, 'Ноги:' %></td><td><%= f.text_field :effects_armor_legs %></td>
+           </tr>
+        </table>
+
+        <table class="noborders">
+          <caption>Мастерства</caption>
+          <tr>
+            <td><%= f.label :effects_masteries_knives, 'Ножи и кастеты:' %></td><td><%= f.text_field :effects_masteries_knives %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :effects_masteries_swords, 'Мечи:' %></td><td><%= f.text_field :effects_masteries_swords %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :effects_masteries_clubs, 'Дубины, булавы:' %></td><td><%= f.text_field :effects_masteries_clubs %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :effects_masteries_axes, 'Топоры:' %></td><td><%= f.text_field :effects_masteries_axes %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :effects_masteries_light_magic, 'Светлая магия:' %></td><td><%= f.text_field :effects_masteries_light_magic %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :effects_masteries_gray_magic, 'Серая магия:' %></td><td><%= f.text_field :effects_masteries_gray_magic %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :effects_masteries_dark_magic, 'Темная магия:' %></td><td><%= f.text_field :effects_masteries_dark_magic %></td>
+          </tr>
+        </table>
+
+      </td>
+    </tr>
+     <tr>
+      <td><%= f.label :effects_experience_multiplier, 'Множитель опыта:' %><%= f.text_field :effects_experience_multiplier %></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td><%= f.label :effects_backpack, 'Рюкзак:' %><%= f.text_field :effects_backpack %></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td><%= f.label :effects_free_stats_count, 'Свободные статы:' %><%= f.text_field :effects_free_stats_count %></td>
+      <td></td>
+    </tr>
+  </table>
+  
+  <hr>
+  <%= f.label :embedded_magic_magic_type, 'Встроенная магия:' %>
+     <%= f.select( :embedded_magic_magic_type, MagicTypes.map, selected:  @item_template.embedded_magic_magic_type) %>
+  <br/>
+  <%= f.label :embedded_magic_magic_chance, 'Шанс удачного каста:' %>
+     <%= f.text_field :embedded_magic_magic_chance %>
+  <%= f.label :embedded_magic_recharges_count_max, 'Количество перезарядок:' %>
+     <%= f.text_field :embedded_magic_recharges_count_max %>
+  <br/>
+  
+  <hr>
+  <table class="noborders">
+    <caption>Дополнительные механики<caption>
+    <tr>
+      <td><%= f.label :can_be_modified, 'Модификация:' %></td><td><%= f.check_box :can_be_modified %></td>
+    <tr>
+    <tr>
+      <td><%= f.label :can_be_tempered, 'Закал:' %></td><td><%= f.check_box :can_be_tempered %></td>
+    <tr>
+    <tr>
+      <td><%= f.label :can_has_embedded_hp_in_armor, 'Чарка брони:' %></td><td><%= f.check_box :can_has_embedded_hp_in_armor %></td>
+    <tr>
+    <tr>
+      <td><%= f.label :can_has_embedded_hp_in_ring, 'Чарка кольца:' %></td><td><%= f.check_box :can_has_embedded_hp_in_ring %></td>
+    <tr>
+    <tr>
+      <td><%= f.label :can_be_sharpened, 'Заточка оружия:' %></td><td><%= f.check_box :can_be_sharpened %></td>
+    <tr>
+    <tr>
+      <td><%= f.label :can_has_weapons_possession, 'Владелки оружия:' %></td><td><%= f.check_box :can_has_weapons_possession %></td>
+    <tr>
+  </table>
+  
+  <%= f.submit "Сохранить", class: 'btn default'%>
+
+<script>
+  jQuery(document).ready(function( $ ) {
+    var $wrapper = $("<%= Shop_selectors::SHOP_WRAPPER %>");
+    $("select[name='item_template[item_type]']", $wrapper).change(function() {
+        $("input[name='item_template[is_two_handed]']", $wrapper).prop('checked', false);
+    });
+
+    $("input[name='item_template[is_two_handed]']", $wrapper).change(function() {
+      if( $(this).prop('checked') )
+        var valid_values = <%= raw ItemsTypes.two_handed_valid_types_hash.values %>
+        var value = $("select[name='item_template[item_type]']", $wrapper).val();
+        if( valid_values.indexOf(parseInt(value)) == -1 ) {
+          $(this).prop('checked', false);
+        }
+    });
+
+  });
+</script>
+  

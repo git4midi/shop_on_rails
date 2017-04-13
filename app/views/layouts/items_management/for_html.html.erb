@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Layout Shop Items Management</title>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="shop-wrapper">
+    <div id='shopUserWrapper'>
+      <%= render partial: '/notice' %>
+      <%= yield %>
+    </div>
+  </div>
+</body>
+</html>

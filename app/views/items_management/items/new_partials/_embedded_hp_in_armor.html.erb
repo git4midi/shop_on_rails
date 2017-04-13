@@ -1,0 +1,11 @@
+<% return unless @item.can_has_embedded_hp_in_armor? %>
+<td>
+  <table id= "embedded_hp_in_armor" class="noborders left dashed">
+    <caption>Чарка брони</caption>
+    <% embedded_hp_in_armor_for_item_improvements.each_value do |hp| %>
+      <tr>
+        <td><%= f.radio_button :embedded_hp_in_armor, hp[:value], checked: hp[:value] == embedded_hp_value %><%= f.label :embedded_hp_in_armor, hp[:caption], value: hp[:value] %></td>
+      </tr>
+    <% end %>
+  </table>
+</td>

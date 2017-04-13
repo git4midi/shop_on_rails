@@ -1,0 +1,4 @@
+<% return unless @item.has_embedded_magic? %>
+<hr>
+<p><%= f.label :embedded_magic_recharges_count, 'Использовано перезарядок магии:' %>
+  <%= f.text_field :embedded_magic_recharges_count %> из <%= embedded_magic_recharges_count_max_from_item_template(@item_template_id) %></p>
