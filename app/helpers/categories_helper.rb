@@ -28,9 +28,13 @@ module CategoriesHelper
   def categories_get_count_for(category_id, count_this)
     case count_this
       when :item_templates
-        Category.find_by_id(category_id).item_templates.count.to_s
+        ItemTemplate.where(category_id: category_id).size.to_s
       when :items
-        Category.find_by_id(category_id).items.count.to_s
+        item_templates = ItemTemplate.where(category_id: category_id)
+        Item.where(item_template_id: item_templates).size.to_s
+      when :my_items
+        item_templates = ItemTemplate.where(category_id: category_id)
+        Item.where(item_template_id: item_templates, user_id: @current_user_id).size.to_s
     else
       nil
     end

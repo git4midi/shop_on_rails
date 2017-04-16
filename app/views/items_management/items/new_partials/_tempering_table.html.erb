@@ -1,4 +1,5 @@
 <% return unless @item.can_be_tempered? %>
+<% tempering_value = 0 if tempering_value.nil? %>
 <td>
   <table id='tempering' class="noborders left dashed">
     <caption>Закаливание</caption>

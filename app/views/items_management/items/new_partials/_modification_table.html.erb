@@ -1,4 +1,5 @@
 <% return unless @item.can_be_modified? %>
+<% modification_value = 0 if modification_value.nil? %>
 <td>
   <table id="midification" class="noborders left dashed">
     <caption>Модификация</caption>

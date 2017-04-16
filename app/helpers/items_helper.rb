@@ -58,7 +58,8 @@ module ItemsHelper
 
   def print_item_caption_for_compact(i)
     path = shop_category_items_path(category_id: @current_category_id)
-    item_link = link_to( i[:caption], path, method: :get, remote: @use_remote, format: @response_format, data: {scroll_top: true, items_caption: u(i[:caption])})
+    items_path = "?#{url_replacer_encode_key(:items_caption)}=#{u(i[:caption])}&#{url_replacer_encode_key(:category_id)}=#{@current_category_id}"
+    item_link = link_to( i[:caption], items_path, method: :get, remote: @use_remote, format: @response_format, data: {url: path, scroll_top: true, items_caption: u(i[:caption])})
     item_caption = "<span class='caption'>#{item_link}</span>"
     unless i[:requirements_align_type] == ItemAlignTypes::ITEM_ALIGN_ANY then
      align_data = ItemAlignTypes.get_data_by_type_value(i[:requirements_align_type])
@@ -213,7 +214,7 @@ module ItemsHelper
       else
         str_value = value.to_s
         str_value = (show_plus ? (value > 0 ? "+" : "") : "") + value.to_s
-        return "<div#{class_str}>• #{caption}: #{str_value}</div>" if value > 0
+        return "<div#{class_str}>• #{caption}: #{str_value}</div>" if value != 0
       end
       ""
     end

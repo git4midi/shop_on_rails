@@ -15,6 +15,6 @@
       <%= pages_pagination_for_items_management_items %>
       <hr>
     </td>
-    <td><%= render partial: '/categories_menu_table', locals: {count_this: :items, path_proc: lambda{|c| items_management_category_items_path(c)} } %></td>
+    <td><%= render partial: '/categories_menu_table', locals: {count_this: :my_items, path_proc: lambda{|c| items_management_category_items_path(c)} } %></td>
   </tr>
 </table>

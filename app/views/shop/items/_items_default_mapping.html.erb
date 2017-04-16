@@ -15,7 +15,7 @@
               <div><%= print_item_caption(i, t) %></div>
               <div class="id"><%= i.id %></div>
               <div class="price">Цена: <%= i.price_cr %> кр.</div>
-              <div class="durability">Долговечность: <%= i.durability_current %>/<%= t.durability_maximum %></div>
+              <div class="durability">Долговечность: <%= i.durability_current %>/<%= i.durability_current_maximum %> (<%= t.durability_maximum %>)</div>
               <div class="requirements"><%= print_item_requirements(i, t) %></div>
               <div class="effects"><%= print_item_effects(i, t) %></div>
               <div class="properties"><%= print_item_properties(i, t) %></div>
